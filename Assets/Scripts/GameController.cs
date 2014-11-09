@@ -5,27 +5,38 @@ public class GameController : MonoBehaviour {
 	public GameObject ThirdPersonViewCamera;
 	public GameObject FirstPersonViewCamera;
 	public GameObject Minimap;
-	//public GameObject player;
+	public GameObject player;
 
 	void Update () {
 		if (Input.GetKey (KeyCode.F1)) {
 			ThirdPersonViewCamera.SetActive(false);
-			//player.SetActive(false);
+			player.SetActive(false);
 			Screen.lockCursor = true;
 			FirstPersonViewCamera.SetActive(true);
 
-			Minimap.SetActive(true);
+			Minimap.SetActive(false);
 			
 		}
 		if (Input.GetKey (KeyCode.F2)) {
 			FirstPersonViewCamera.SetActive(false);
-			//player.SetActive(true);
+			player.SetActive(true);
 			Screen.lockCursor = false;
 			ThirdPersonViewCamera.SetActive(true);
 
 			Minimap.SetActive(true);
 			
 		}
+		if (Input.GetKey (KeyCode.G)) {
+			Physics.gravity = new Vector3(20f,-9.81f,0f);
+
+		}
+		if (Input.GetKey (KeyCode.H)) {
+			Physics.gravity = new Vector3(-20f,-9.81f,0f);
+			
+		}
+
+
+
 	
 	}
 }
