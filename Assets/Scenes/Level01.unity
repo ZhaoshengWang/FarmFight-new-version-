@@ -787,7 +787,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -822,6 +822,7 @@ MonoBehaviour:
   ThirdPersonViewCamera: {fileID: 2005307681}
   FirstPersonViewCamera: {fileID: 584126187}
   Minimap: {fileID: 1587912074}
+  player: {fileID: 1336039846}
 --- !u!4 &674029336
 Transform:
   m_ObjectHideFlags: 0
@@ -829,7 +830,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 674029334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.31809998, z: -4.19220018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1139,7 +1140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSmoothValue: 15
   speedDampTime: .100000001
-  speed: 1000
+  speed: 0
 --- !u!136 &990061479
 CapsuleCollider:
   m_ObjectHideFlags: 0

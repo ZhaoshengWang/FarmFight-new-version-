@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour {
 			Screen.lockCursor = true;
 			FirstPersonViewCamera.SetActive(true);
 
-			Minimap.SetActive(true);
+			Minimap.SetActive(false);
 			
 		}
 		if (Input.GetKey (KeyCode.F2)) {
@@ -26,6 +26,17 @@ public class GameController : MonoBehaviour {
 			Minimap.SetActive(true);
 			
 		}
+		if (Input.GetKey (KeyCode.G)) {
+			Physics.gravity = new Vector3(20f,-9.81f,0f);
+
+		}
+		if (Input.GetKey (KeyCode.H)) {
+			Physics.gravity = new Vector3(-20f,-9.81f,0f);
+			
+		}
+
+
+
 	
 	}
 }
