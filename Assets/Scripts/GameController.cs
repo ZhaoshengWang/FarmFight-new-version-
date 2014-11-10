@@ -6,13 +6,24 @@ public class GameController : MonoBehaviour {
 	public GameObject FirstPersonViewCamera;
 	public GameObject Minimap;
 	public GameObject player;
+	public GameObject Cannon;
+	public GameObject bombObject;
+	void Start(){
+		for (int i = 0; i < 25; i++) {
+		Vector3 spawnPosition = new Vector3(Random.Range(-50,100),
+		                                    Random.Range(0,300),Random.Range(-100,100));
+			Quaternion spawnRotation = Quaternion.identity;
+			Instantiate (bombObject, spawnPosition, spawnRotation);
 
+		}
+	}
 	void Update () {
 		if (Input.GetKey (KeyCode.F1)) {
 			ThirdPersonViewCamera.SetActive(false);
 			player.SetActive(false);
 			Screen.lockCursor = true;
 			FirstPersonViewCamera.SetActive(true);
+			Cannon.SetActive(false);
 
 			Minimap.SetActive(false);
 			
@@ -22,19 +33,33 @@ public class GameController : MonoBehaviour {
 			player.SetActive(true);
 			Screen.lockCursor = false;
 			ThirdPersonViewCamera.SetActive(true);
+			Cannon.SetActive(false);
 
 			Minimap.SetActive(true);
 			
 		}
+		if (Input.GetKey (KeyCode.F3)) {
+			FirstPersonViewCamera.SetActive(false);
+			player.SetActive(false);
+			Screen.lockCursor = true;
+			ThirdPersonViewCamera.SetActive(false);		
+			Minimap.SetActive(false);
+
+			Cannon.SetActive(true);
+			
+		}
+
+
 		if (Input.GetKey (KeyCode.G)) {
 			Physics.gravity = new Vector3(20f,-9.81f,0f);
 
 		}
 		if (Input.GetKey (KeyCode.H)) {
-			Physics.gravity = new Vector3(-20f,-9.81f,0f);
-			
+			Physics.gravity = new Vector3(-20f,-9.81f,0f);		
 		}
-
+		if (Input.GetKey (KeyCode.J)) {
+			Physics.gravity = new Vector3(0f,-9.81f,0f);		
+		}
 
 
 	
