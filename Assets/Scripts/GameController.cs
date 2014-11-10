@@ -8,6 +8,10 @@ public class GameController : MonoBehaviour {
 	public GameObject player;
 	public GameObject Cannon;
 	public GameObject bombObject;
+	public GameObject Wall;
+	//public GameObject PlayerPlane;
+	//public GameObject EnemyPlane;
+	public GameObject Plane;
 	void Start(){
 		for (int i = 0; i < 25; i++) {
 		Vector3 spawnPosition = new Vector3(Random.Range(-50,100),
@@ -18,6 +22,7 @@ public class GameController : MonoBehaviour {
 		}
 	}
 	void Update () {
+
 		if (Input.GetKey (KeyCode.F1)) {
 			ThirdPersonViewCamera.SetActive(false);
 			player.SetActive(false);
@@ -49,6 +54,21 @@ public class GameController : MonoBehaviour {
 			
 		}
 
+		if (Input.GetKey (KeyCode.T)) {
+			float x = Plane.transform.rotation.x-1f;
+			Plane.transform.Rotate(x,0f,0f);
+			//float wallX = Wall.transform.rotation.x-1f;
+			//Wall.transform.Rotate(wallX,0f,0f);
+			Wall.SetActive(false);
+
+		}
+		if (Input.GetKey (KeyCode.R)) {
+			float x = Plane.transform.rotation.x+1f;
+			Plane.transform.Rotate(x,0f,0f);
+			//float wallX = Wall.transform.rotation.x+1f;
+			//Wall.transform.Rotate(wallX,0f,0f);
+			Wall.SetActive(false);
+		}
 
 		if (Input.GetKey (KeyCode.G)) {
 			Physics.gravity = new Vector3(20f,-9.81f,0f);

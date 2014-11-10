@@ -12,8 +12,9 @@ public class CannonShootingController : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetButton ("Fire1")) {
-			GameObject cannonBall= (GameObject)Instantiate(cannonBallMaterial,cannonCamera.transform.position,cannonCamera.transform.rotation);
-			cannonBall.rigidbody.AddForce (cannonCamera.transform.forward*100f,ForceMode.Impulse);
+			Vector3 respawnPosition = new Vector3(cannonCamera.transform.position.x+0.2f,cannonCamera.transform.position.y+0.1f,cannonCamera.transform.position.z);
+			GameObject cannonBall= (GameObject)Instantiate(cannonBallMaterial,respawnPosition,cannonCamera.transform.rotation);
+			cannonBall.rigidbody.AddForce (cannonCamera.transform.forward*50f,ForceMode.Impulse);
 		}
 	
 	}

@@ -17,10 +17,11 @@ public class firingSpot : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		Vector3 movement = new Vector3(-10.0f, 0.0f, 10.0f);
+		Vector3 movement = new Vector3(-10.0f, 10.0f, 0.0f);
 		if(other.tag != "Player")
 		{
 			other.rigidbody.AddForce(movement * speed);
+			other.GetComponent<NavMeshAgent>().enabled = false;
 		}
 	}
 }
