@@ -21,7 +21,12 @@ public class firingSpot : MonoBehaviour
 		if(other.tag != "Player")
 		{
 			other.rigidbody.AddForce(movement * speed);
-			other.GetComponent<NavMeshAgent>().enabled = false;
+			if(other.GetComponent<NavMeshAgent>() != null)
+			{
+				other.GetComponent<NavMeshAgent>().enabled = false;
+				other.GetComponent<EnemyLivestockMovement>().fired = true;
+			}
+
 		}
 	}
 }

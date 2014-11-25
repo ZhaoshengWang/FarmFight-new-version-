@@ -5,11 +5,13 @@ public class EnemyLivestockMovement : MonoBehaviour
 {
 	Transform firingSpot;
 	NavMeshAgent nav;
+	public bool fired;
 
 	void Awake()
 	{
 		firingSpot = GameObject.FindGameObjectWithTag("FiringSpot").transform;
 		nav = GetComponent<NavMeshAgent>();
+		fired = false;
 	}
 
 	// Use this for initialization
@@ -20,7 +22,10 @@ public class EnemyLivestockMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		nav.SetDestination(firingSpot.position);
+		if(!fired)
+		{
+			nav.SetDestination(firingSpot.position);
+		}
 	}
 	
 }
